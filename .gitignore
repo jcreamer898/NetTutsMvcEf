@@ -1,0 +1,41 @@
+# Ignore thumbnails created by Windows
+Thumbs.db
+
+# Ignore Visual Studio build folders and ReSharper
+_ReSharper*/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+obj/
+[Tt]est[Rr]esult*
+
+packages/
+
+# Ignore leftover merge files
+*~HEAD
+
+# Ignore unimportant file extensions (binaries, user prefs, etc.)
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.docstates
+
+# Exceptions
+![Tt]ools/[Nn]u[Gg]et.exe
+#!Dominion.Cms.6.0.ReSharper.user
