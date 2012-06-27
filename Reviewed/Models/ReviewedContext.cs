@@ -11,7 +11,6 @@ namespace Reviewed.Models
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Category> Categories{ get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<Reviewer> Reviewer { get; set; }
 
         public ReviewedContext()
         {

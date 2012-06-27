@@ -33,7 +33,7 @@ namespace Reviewed.Models.Abstract
 
         public Category Get(int id)
         {
-            return _db.Categories.SingleOrDefault(c => c.CategoryId == id);
+            return _db.Categories.SingleOrDefault(c => c.Id == id);
         }
 
         public IEnumerable<Category> GetAll()
@@ -57,7 +57,7 @@ namespace Reviewed.Models.Abstract
 
         public void Delete(int categoryId)
         {
-            var category = _db.Categories.Single(c => c.CategoryId == categoryId);
+            var category = _db.Categories.Single(c => c.Id == categoryId);
             _db.Categories.Remove(category);
         }
 

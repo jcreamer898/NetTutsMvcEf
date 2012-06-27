@@ -40,7 +40,7 @@ namespace Reviewed.Controllers
         public HttpResponseMessage Post(Category category)
         {
             var response = Request.CreateResponse(HttpStatusCode.Created, category);
-            response.Headers.Location = new Uri(Request.RequestUri, string.Format("categories/{0}", category.CategoryId));
+            response.Headers.Location = new Uri(Request.RequestUri, string.Format("categories/{0}", category.Id));
             _categoriesRepository.Add(category);
             return response;
         }

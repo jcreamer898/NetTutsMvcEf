@@ -24,7 +24,7 @@ namespace Reviewed.Models.Repos
 
         public Review Get(int id)
         {
-            return _db.Reviews.SingleOrDefault(r => r.ReviewId == id);
+            return _db.Reviews.Include("Comments").SingleOrDefault(r => r.Id == id);
         }
 
         public IQueryable<Review> GetAll()
@@ -54,7 +54,7 @@ namespace Reviewed.Models.Repos
 
         public IEnumerable<Review> GetByCategory(Category category)
         {
-            return _db.Reviews.Where(r => r.CategoryId == category.CategoryId);
+            return _db.Reviews.Where(r => r.CategoryId == category.Id);
         }
     }
 }
