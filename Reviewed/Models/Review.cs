@@ -8,7 +8,7 @@ namespace Reviewed.Models
 {
     public class Review
     {
-        public int ReviewId { get; set; }
+        public int Id { get; set; }
         public string Content { get; set; }
         
         public int CategoryId { get; set; }
@@ -17,6 +17,6 @@ namespace Reviewed.Models
         public bool IsAnonymous { get; set; }
         
         public virtual Category Category { get; set; }
-        public virtual IEnumerable<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

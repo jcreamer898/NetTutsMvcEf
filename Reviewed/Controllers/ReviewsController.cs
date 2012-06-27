@@ -43,7 +43,7 @@ namespace Reviewed.Controllers
         public HttpResponseMessage Post(Review review)
         {
             var response = Request.CreateResponse(HttpStatusCode.Created, review);
-            response.Headers.Location = new Uri(Request.RequestUri, string.Format("reviews/{0}", review.ReviewId));
+            response.Headers.Location = new Uri(Request.RequestUri, string.Format("reviews/{0}", review.Id));
             _reviewRepository.Add(review);
             return response;
         }
