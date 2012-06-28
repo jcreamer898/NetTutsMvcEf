@@ -152,8 +152,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Abstract\ICategoriesRepository.cs" />
+    <Compile Include="Models\Abstract\ICommentsRepository.cs" />
     <Compile Include="Models\Abstract\IReviewRepository.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,6 +164,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Repos\CategoriesRepository.cs" />
+    <Compile Include="Models\Repos\CommentsRepository.cs" />
     <Compile Include="Models\Repos\ReviewRepository.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ReviewedContext.cs" />
