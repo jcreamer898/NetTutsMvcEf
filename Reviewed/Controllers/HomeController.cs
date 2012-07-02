@@ -3,24 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Reviewed.Models;
+using Reviewed.Models.Abstract;
 using Reviewed.Models.Repos;
 
 namespace Reviewed.Controllers
 {
     public class HomeController : Controller
     {
+        private ICategoriesRepository _categoriesRepository { get; set; }
+        private IReviewRepository _reviewRepository { get; set; }
+
+        public HomeController(ICategoriesRepository categoriesRepository, IReviewRepository reviewRepository)
+        {
+            _categoriesRepository = categoriesRepository;
+            _reviewRepository = reviewRepository;
+        }
+        
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to kick-start your ASP.NET MVC application.";
-
-            return View();
+            var categories = _categoriesRepository.GetAll();
+            return View(categories);
         }
 
-        public ActionResult About()
+        public ActionResult Reviews(string id)
         {
-            ViewBag.Message = "Your app description page.";
+            var reviews = _reviewRepository.GetByCategory(_categoriesRepository.GetByName(id));
 
-            return View();
+            return View(reviews);
         }
 
         public ActionResult Contact()

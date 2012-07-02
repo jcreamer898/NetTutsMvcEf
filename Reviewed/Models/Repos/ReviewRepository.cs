@@ -56,5 +56,10 @@ namespace Reviewed.Models.Repos
         {
             return _db.Reviews.Where(r => r.CategoryId == category.Id);
         }
+
+        public IEnumerable<Comment> GetReviewComments(int id)
+        {
+            return _db.Comments.Where(c => c.ReviewId == id);
+        }
     }
 }

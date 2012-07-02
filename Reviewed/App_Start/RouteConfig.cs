@@ -15,6 +15,12 @@ namespace Reviewed
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapHttpRoute(
+                name: "GetReviewComments",
+                routeTemplate: "api/reviews/comments/{id}",
+                defaults: new { id = RouteParameter.Optional, controller = "Reviews", action = "GetReviewComments" }
+            );
+
+            routes.MapHttpRoute(
                 name: "GetByCategories",
                 routeTemplate: "api/reviews/categories/{category}",
                 defaults: new { category = RouteParameter.Optional, controller = "Reviews", action = "GetByCategory" }

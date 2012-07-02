@@ -72,5 +72,17 @@ namespace Reviewed.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK,_reviewRepository.GetByCategory(findCategory));
         }
+
+        // GET api/reviews/comments/{id}
+        public HttpResponseMessage GetReviewComments(int id)
+        {
+
+            var reviewComments = _reviewRepository.GetReviewComments(id);
+            if (reviewComments == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, reviewComments);
+        }
     }
 }

@@ -63,6 +63,7 @@ namespace Reviewed.App_Start
         {
             kernel.Bind<IReviewRepository>().To<ReviewRepository>();
             kernel.Bind<ICategoriesRepository>().To<CategoriesRepository>();
+            kernel.Bind<ICommentsRepository>().To<CommentsRepository>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
         }        

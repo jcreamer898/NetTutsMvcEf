@@ -11,5 +11,6 @@ namespace Reviewed.Models.Abstract
         Review Update(Review review);
         void Delete(int reviewId);
         IEnumerable<Review> GetByCategory(Category category);
+        IEnumerable<Comment> GetReviewComments(int id);
     }
 }
