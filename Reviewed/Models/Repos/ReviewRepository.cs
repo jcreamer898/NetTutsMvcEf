@@ -61,13 +61,5 @@ namespace Reviewed.Models.Repos
         {
             return _db.Comments.Where(c => c.ReviewId == id);
         }
-
-        public IEnumerable<string> Autocomplete(string topic)
-        {
-            var reviews = _db.Reviews.Where(r => r.Topic.StartsWith(topic) || r.Topic.EndsWith(topic))
-                .Select(r => r.Topic)
-                .Distinct();
-            return reviews;
-        }
     }
 }
