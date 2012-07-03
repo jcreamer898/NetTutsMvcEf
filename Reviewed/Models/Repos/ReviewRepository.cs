@@ -24,7 +24,7 @@ namespace Reviewed.Models.Repos
 
         public Review Get(int id)
         {
-            return _db.Reviews.Include("Comments").SingleOrDefault(r => r.Id == id);
+            return _db.Reviews.SingleOrDefault(r => r.Id == id);
         }
 
         public IQueryable<Review> GetAll()
