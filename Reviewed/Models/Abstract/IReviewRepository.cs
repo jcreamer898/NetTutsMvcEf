@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace Reviewed.Models.Abstract
 {
@@ -12,5 +13,6 @@ namespace Reviewed.Models.Abstract
         void Delete(int reviewId);
         IEnumerable<Review> GetByCategory(Category category);
         IEnumerable<Comment> GetReviewComments(int id);
+        IEnumerable<string> Autocomplete(string id);
     }
 }

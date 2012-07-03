@@ -9,5 +9,6 @@ namespace Reviewed.Models.Abstract
         Comment Add(Comment Comment);
         Comment Update(Comment comment);
         void Delete(int commentId);
+        IEnumerable<Comment> GetCommentsByReviewId(int id);
     }
 }

@@ -49,5 +49,10 @@ namespace Reviewed.Models.Repos
             var comment = _db.Comments.Single(c => c.Id == commentId);
             _db.Comments.Remove(comment);
         }
+
+        public IEnumerable<Comment> GetCommentsByReviewId(int id)
+        {
+            return _db.Comments.Where(c => c.ReviewId == id);
+        }
     }
 }

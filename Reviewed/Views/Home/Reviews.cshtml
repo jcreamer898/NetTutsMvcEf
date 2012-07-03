@@ -1,6 +1,28 @@
 ﻿@model IEnumerable<Reviewed.Models.Review>
 
-@foreach(var review in Model)
-{
-    <p>@review.Content</p>
+@section scripts {
+    <script type="text/javascript" src="/Scripts/home.js"></script>
 }
+
+<div class="reviews">
+    <ul></ul>
+</div>
+
+<script type="text/html" id="reviewsTemplate">
+
+    <h3><%= Topic %></h3>
+    <p>
+        <%= Content %>
+    </p>
+    
+    <a href="#comments">Load Comments</a>
+    <ul></ul>
+
+</script>
+
+<script type="text/html" id="commentsTemplate">
+<li>
+	<strong><%= !IsAnonymous ? Email + " says," : "" %></strong>
+	<blockquote><%= Content %></blockquote>
+</li>       
+</script>

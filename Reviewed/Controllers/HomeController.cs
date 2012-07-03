@@ -26,18 +26,43 @@ namespace Reviewed.Controllers
             return View(categories);
         }
 
-        public ActionResult Reviews(string id)
+        public ActionResult Review()
         {
-            var reviews = _reviewRepository.GetByCategory(_categoriesRepository.GetByName(id));
-
-            return View(reviews);
+            return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Reviews(string id)
+        {
+            List<Review> reviews = new List<Review>();
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                reviews =_reviewRepository.GetByCategory(_categoriesRepository.GetByName(id)).ToList();
+            }
+            else
+            {
+                reviews = _reviewRepository.GetAll().ToList();
+            }
+
+            foreach (var review in reviews)
+            {
+                var comments = _reviewRepository.GetReviewComments(review.Id);
+                review.Comments = comments.ToList();
+            }
+            return View(reviews);
+        }
+        
+        public JsonResult Autocomplete(string id)
+        {
+            var topics = _reviewRepository.Autocomplete(id);
+            return Json(topics, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public JsonResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
-            return View();
+            var resp = new ReviewsController(_reviewRepository, _categoriesRepository).Comments(1);
+            return Json(resp, JsonRequestBehavior.AllowGet);
         }
     }
 }

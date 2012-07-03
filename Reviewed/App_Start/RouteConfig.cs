@@ -17,7 +17,7 @@ namespace Reviewed
             routes.MapHttpRoute(
                 name: "GetReviewComments",
                 routeTemplate: "api/reviews/comments/{id}",
-                defaults: new { id = RouteParameter.Optional, controller = "Reviews", action = "GetReviewComments" }
+                defaults: new { id = RouteParameter.Optional, controller = "Reviews", action = "Comments" }
             );
 
             routes.MapHttpRoute(

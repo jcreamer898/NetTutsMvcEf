@@ -10,6 +10,10 @@ namespace Reviewed
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-1.*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/backbone").Include(
+                        "~/Scripts/underscore*",
+                        "~/Scripts/backbone*"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui*"));
 

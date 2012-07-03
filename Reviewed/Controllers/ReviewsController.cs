@@ -74,15 +74,13 @@ namespace Reviewed.Controllers
         }
 
         // GET api/reviews/comments/{id}
-        public HttpResponseMessage GetReviewComments(int id)
+        [HttpGet]
+        public IEnumerable<Comment> Comments(int id)
         {
 
             var reviewComments = _reviewRepository.GetReviewComments(id);
-            if (reviewComments == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
-            return Request.CreateResponse(HttpStatusCode.OK, reviewComments);
+
+            return reviewComments;
         }
     }
 }

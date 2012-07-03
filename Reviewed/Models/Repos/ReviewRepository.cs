@@ -24,7 +24,7 @@ namespace Reviewed.Models.Repos
 
         public Review Get(int id)
         {
-            return _db.Reviews.SingleOrDefault(r => r.Id == id);
+            return _db.Reviews.Include("Comments").SingleOrDefault(r => r.Id == id);
         }
 
         public IQueryable<Review> GetAll()
@@ -60,6 +60,14 @@ namespace Reviewed.Models.Repos
         public IEnumerable<Comment> GetReviewComments(int id)
         {
             return _db.Comments.Where(c => c.ReviewId == id);
+        }
+
+        public IEnumerable<string> Autocomplete(string topic)
+        {
+            var reviews = _db.Reviews.Where(r => r.Topic.StartsWith(topic) || r.Topic.EndsWith(topic))
+                .Select(r => r.Topic)
+                .Distinct();
+            return reviews;
         }
     }
 }
