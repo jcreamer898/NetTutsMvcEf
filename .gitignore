@@ -37,5 +37,5 @@ packages/
 *.docstates
 
 # Exceptions
-![Tt]ools/[Nn]u[Gg]et.exe
+!.nuget/[Nn]u[Gg]et.exe
 #!Dominion.Cms.6.0.ReSharper.user
