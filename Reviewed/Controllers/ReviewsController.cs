@@ -31,12 +31,12 @@ namespace Reviewed.Controllers
         // GET api/review/5
         public HttpResponseMessage Get(int id)
         {
-            var category = _reviewRepository.Get(id);
-            if (category == null)
+            var review = _reviewRepository.Get(id);
+            if (review == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, category);
+            return Request.CreateResponse(HttpStatusCode.OK, review);
         }
 
         // POST api/review
