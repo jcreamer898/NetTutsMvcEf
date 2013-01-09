@@ -69,7 +69,7 @@ You think water moves fast? You should see ice. It moves like it has a mind. Lik
 
             context.Reviews.Add(new Review
                 {
-                    CategoryId = context.Categories.Last().Id,
+                    CategoryId = context.Categories.First().Id,
                     Email = "another@email.com",
                     IsAnonymous = false,
                     Content =

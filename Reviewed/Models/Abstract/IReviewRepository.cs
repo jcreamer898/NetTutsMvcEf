@@ -13,6 +13,5 @@ namespace Reviewed.Models.Abstract
         void Delete(int reviewId);
         IEnumerable<Review> GetByCategory(Category category);
         IEnumerable<Comment> GetReviewComments(int id);
-        IEnumerable<string> Autocomplete(string id);
     }
 }

@@ -50,13 +50,6 @@ namespace Reviewed.Controllers
             }
             return View(reviews);
         }
-        
-        public JsonResult Autocomplete(string id)
-        {
-            var topics = _reviewRepository.Autocomplete(id);
-            return Json(topics, JsonRequestBehavior.AllowGet);
-        }
-
 
         public JsonResult Contact()
         {
